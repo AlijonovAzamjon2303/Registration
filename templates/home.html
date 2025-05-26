@@ -1,0 +1,9 @@
+<h2>Bosh sahifa</h2>
+{% if user.is_authenticated %}
+  Salom, {{ user.username }}! <br>
+  <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+    <button type="submit">Chiqish</button>
+  </form>
+{% else %}
+  <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Ro'yxatdan o'tish</a>
+{% endif %}
